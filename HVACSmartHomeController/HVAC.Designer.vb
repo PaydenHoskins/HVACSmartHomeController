@@ -25,8 +25,6 @@ Partial Class HVAC
         Me.components = New System.ComponentModel.Container()
         Me.SerialPort1 = New System.IO.Ports.SerialPort(Me.components)
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.DateAndTimeTextBox = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.HighLabel = New System.Windows.Forms.Label()
@@ -59,6 +57,7 @@ Partial Class HVAC
         Me.ErrorStatusLabel = New System.Windows.Forms.Label()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
+        Me.DateAndTimeTextBox = New System.Windows.Forms.Label()
         Me.ModeGroupBox.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -70,24 +69,6 @@ Partial Class HVAC
         '
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 10
-        '
-        'DateAndTimeTextBox
-        '
-        Me.DateAndTimeTextBox.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateAndTimeTextBox.Location = New System.Drawing.Point(12, 43)
-        Me.DateAndTimeTextBox.Name = "DateAndTimeTextBox"
-        Me.DateAndTimeTextBox.Size = New System.Drawing.Size(228, 43)
-        Me.DateAndTimeTextBox.TabIndex = 0
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(12, 15)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(61, 25)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Clock"
         '
         'Label2
         '
@@ -365,7 +346,7 @@ Partial Class HVAC
         'ErrorTextBox
         '
         Me.ErrorTextBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ErrorTextBox.Location = New System.Drawing.Point(12, 191)
+        Me.ErrorTextBox.Location = New System.Drawing.Point(10, 35)
         Me.ErrorTextBox.Name = "ErrorTextBox"
         Me.ErrorTextBox.ReadOnly = True
         Me.ErrorTextBox.Size = New System.Drawing.Size(172, 25)
@@ -375,7 +356,7 @@ Partial Class HVAC
         '
         Me.ErrorStatusLabel.AutoSize = True
         Me.ErrorStatusLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ErrorStatusLabel.Location = New System.Drawing.Point(14, 171)
+        Me.ErrorStatusLabel.Location = New System.Drawing.Point(12, 15)
         Me.ErrorStatusLabel.Name = "ErrorStatusLabel"
         Me.ErrorStatusLabel.Size = New System.Drawing.Size(80, 17)
         Me.ErrorStatusLabel.TabIndex = 27
@@ -391,12 +372,22 @@ Partial Class HVAC
         Me.Timer3.Enabled = True
         Me.Timer3.Interval = 10
         '
+        'DateAndTimeTextBox
+        '
+        Me.DateAndTimeTextBox.AutoSize = True
+        Me.DateAndTimeTextBox.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateAndTimeTextBox.Location = New System.Drawing.Point(319, 37)
+        Me.DateAndTimeTextBox.Name = "DateAndTimeTextBox"
+        Me.DateAndTimeTextBox.Size = New System.Drawing.Size(0, 45)
+        Me.DateAndTimeTextBox.TabIndex = 28
+        '
         'HVAC
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(167, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(167, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(808, 456)
+        Me.Controls.Add(Me.DateAndTimeTextBox)
         Me.Controls.Add(Me.ErrorStatusLabel)
         Me.Controls.Add(Me.ErrorTextBox)
         Me.Controls.Add(Me.LowUpButton)
@@ -421,8 +412,6 @@ Partial Class HVAC
         Me.Controls.Add(Me.HighLabel)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.DateAndTimeTextBox)
         Me.Name = "HVAC"
         Me.Text = "HVAC"
         Me.ModeGroupBox.ResumeLayout(False)
@@ -436,8 +425,6 @@ Partial Class HVAC
 
     Friend WithEvents SerialPort1 As IO.Ports.SerialPort
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents DateAndTimeTextBox As TextBox
-    Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents HighLabel As Label
@@ -470,4 +457,5 @@ Partial Class HVAC
     Friend WithEvents ErrorStatusLabel As Label
     Friend WithEvents Timer2 As Timer
     Friend WithEvents Timer3 As Timer
+    Friend WithEvents DateAndTimeTextBox As Label
 End Class

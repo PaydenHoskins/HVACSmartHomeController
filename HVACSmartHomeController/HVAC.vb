@@ -2,7 +2,7 @@
 'Fall 2025
 'RCET3371
 'HVAC_System
-'https://github.com/PaydenHoskins/CircuitSolver.git
+'https://github.com/PaydenHoskins/HVACSmartHomeController.git
 
 Option Explicit On
 Option Strict On

@@ -58,8 +58,10 @@ Partial Class HVAC
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.DateAndTimeTextBox = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ModeGroupBox.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SerialPort1
@@ -381,12 +383,22 @@ Partial Class HVAC
         Me.DateAndTimeTextBox.Size = New System.Drawing.Size(0, 45)
         Me.DateAndTimeTextBox.TabIndex = 28
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.HVACSmartHomeController.My.Resources.Resources.Electronics_Club_Logo_01
+        Me.PictureBox1.Location = New System.Drawing.Point(17, 160)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(197, 145)
+        Me.PictureBox1.TabIndex = 29
+        Me.PictureBox1.TabStop = False
+        '
         'HVAC
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(167, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(167, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(808, 456)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.DateAndTimeTextBox)
         Me.Controls.Add(Me.ErrorStatusLabel)
         Me.Controls.Add(Me.ErrorTextBox)
@@ -418,6 +430,7 @@ Partial Class HVAC
         Me.ModeGroupBox.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -458,4 +471,5 @@ Partial Class HVAC
     Friend WithEvents Timer2 As Timer
     Friend WithEvents Timer3 As Timer
     Friend WithEvents DateAndTimeTextBox As Label
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

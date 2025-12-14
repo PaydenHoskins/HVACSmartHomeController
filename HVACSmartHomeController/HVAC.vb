@@ -1,4 +1,10 @@
-﻿Option Explicit On
+﻿'Payden Hoskins
+'Fall 2025
+'RCET3371
+'HVAC_System
+'https://github.com/PaydenHoskins/CircuitSolver.git
+
+Option Explicit On
 Option Strict On
 
 Imports System.IO.Ports

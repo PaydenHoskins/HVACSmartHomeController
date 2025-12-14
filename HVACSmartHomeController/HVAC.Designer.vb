@@ -51,14 +51,25 @@ Partial Class HVAC
         Me.ExitButton = New System.Windows.Forms.Button()
         Me.LowTextBox = New System.Windows.Forms.TextBox()
         Me.LowLabel = New System.Windows.Forms.Label()
+        Me.HighDownButton = New System.Windows.Forms.Button()
+        Me.HighUpButton = New System.Windows.Forms.Button()
+        Me.LowUpButton = New System.Windows.Forms.Button()
+        Me.LowDownButton = New System.Windows.Forms.Button()
+        Me.ErrorTextBox = New System.Windows.Forms.TextBox()
+        Me.ErrorStatusLabel = New System.Windows.Forms.Label()
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.ModeGroupBox.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
+        'SerialPort1
+        '
+        '
         'Timer1
         '
         Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 1
+        Me.Timer1.Interval = 10
         '
         'DateAndTimeTextBox
         '
@@ -82,7 +93,7 @@ Partial Class HVAC
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(425, 361)
+        Me.Label2.Location = New System.Drawing.Point(350, 262)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(130, 30)
         Me.Label2.TabIndex = 2
@@ -102,7 +113,7 @@ Partial Class HVAC
         '
         Me.HighLabel.AutoSize = True
         Me.HighLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HighLabel.Location = New System.Drawing.Point(234, 235)
+        Me.HighLabel.Location = New System.Drawing.Point(452, 359)
         Me.HighLabel.Name = "HighLabel"
         Me.HighLabel.Size = New System.Drawing.Size(116, 21)
         Me.HighLabel.TabIndex = 5
@@ -111,7 +122,7 @@ Partial Class HVAC
         'RoomTextBox
         '
         Me.RoomTextBox.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RoomTextBox.Location = New System.Drawing.Point(425, 394)
+        Me.RoomTextBox.Location = New System.Drawing.Point(339, 295)
         Me.RoomTextBox.Name = "RoomTextBox"
         Me.RoomTextBox.ReadOnly = True
         Me.RoomTextBox.Size = New System.Drawing.Size(154, 43)
@@ -257,7 +268,7 @@ Partial Class HVAC
         'MachineTextBox
         '
         Me.MachineTextBox.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MachineTextBox.Location = New System.Drawing.Point(219, 394)
+        Me.MachineTextBox.Location = New System.Drawing.Point(337, 191)
         Me.MachineTextBox.Name = "MachineTextBox"
         Me.MachineTextBox.ReadOnly = True
         Me.MachineTextBox.Size = New System.Drawing.Size(154, 43)
@@ -267,7 +278,7 @@ Partial Class HVAC
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(219, 361)
+        Me.Label6.Location = New System.Drawing.Point(337, 158)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(156, 30)
         Me.Label6.TabIndex = 15
@@ -276,7 +287,7 @@ Partial Class HVAC
         'HighTextBox
         '
         Me.HighTextBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HighTextBox.Location = New System.Drawing.Point(267, 262)
+        Me.HighTextBox.Location = New System.Drawing.Point(484, 386)
         Me.HighTextBox.Name = "HighTextBox"
         Me.HighTextBox.ReadOnly = True
         Me.HighTextBox.Size = New System.Drawing.Size(51, 25)
@@ -295,7 +306,7 @@ Partial Class HVAC
         'LowTextBox
         '
         Me.LowTextBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LowTextBox.Location = New System.Drawing.Point(472, 262)
+        Me.LowTextBox.Location = New System.Drawing.Point(291, 386)
         Me.LowTextBox.Name = "LowTextBox"
         Me.LowTextBox.ReadOnly = True
         Me.LowTextBox.Size = New System.Drawing.Size(51, 25)
@@ -305,11 +316,80 @@ Partial Class HVAC
         '
         Me.LowLabel.AutoSize = True
         Me.LowLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LowLabel.Location = New System.Drawing.Point(439, 235)
+        Me.LowLabel.Location = New System.Drawing.Point(256, 359)
         Me.LowLabel.Name = "LowLabel"
         Me.LowLabel.Size = New System.Drawing.Size(110, 21)
         Me.LowLabel.TabIndex = 20
         Me.LowLabel.Text = "Low Setpoint"
+        '
+        'HighDownButton
+        '
+        Me.HighDownButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(121, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.HighDownButton.Location = New System.Drawing.Point(466, 417)
+        Me.HighDownButton.Name = "HighDownButton"
+        Me.HighDownButton.Size = New System.Drawing.Size(38, 23)
+        Me.HighDownButton.TabIndex = 22
+        Me.HighDownButton.Text = "<"
+        Me.HighDownButton.UseVisualStyleBackColor = False
+        '
+        'HighUpButton
+        '
+        Me.HighUpButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(121, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.HighUpButton.Location = New System.Drawing.Point(519, 417)
+        Me.HighUpButton.Name = "HighUpButton"
+        Me.HighUpButton.Size = New System.Drawing.Size(38, 23)
+        Me.HighUpButton.TabIndex = 23
+        Me.HighUpButton.Text = ">"
+        Me.HighUpButton.UseVisualStyleBackColor = False
+        '
+        'LowUpButton
+        '
+        Me.LowUpButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(121, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.LowUpButton.Location = New System.Drawing.Point(322, 417)
+        Me.LowUpButton.Name = "LowUpButton"
+        Me.LowUpButton.Size = New System.Drawing.Size(38, 23)
+        Me.LowUpButton.TabIndex = 25
+        Me.LowUpButton.Text = ">"
+        Me.LowUpButton.UseVisualStyleBackColor = False
+        '
+        'LowDownButton
+        '
+        Me.LowDownButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(121, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.LowDownButton.Location = New System.Drawing.Point(269, 417)
+        Me.LowDownButton.Name = "LowDownButton"
+        Me.LowDownButton.Size = New System.Drawing.Size(38, 23)
+        Me.LowDownButton.TabIndex = 24
+        Me.LowDownButton.Text = "<"
+        Me.LowDownButton.UseVisualStyleBackColor = False
+        '
+        'ErrorTextBox
+        '
+        Me.ErrorTextBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ErrorTextBox.Location = New System.Drawing.Point(12, 191)
+        Me.ErrorTextBox.Name = "ErrorTextBox"
+        Me.ErrorTextBox.ReadOnly = True
+        Me.ErrorTextBox.Size = New System.Drawing.Size(172, 25)
+        Me.ErrorTextBox.TabIndex = 26
+        '
+        'ErrorStatusLabel
+        '
+        Me.ErrorStatusLabel.AutoSize = True
+        Me.ErrorStatusLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ErrorStatusLabel.Location = New System.Drawing.Point(14, 171)
+        Me.ErrorStatusLabel.Name = "ErrorStatusLabel"
+        Me.ErrorStatusLabel.Size = New System.Drawing.Size(80, 17)
+        Me.ErrorStatusLabel.TabIndex = 27
+        Me.ErrorStatusLabel.Text = "Error Status"
+        '
+        'Timer2
+        '
+        Me.Timer2.Enabled = True
+        Me.Timer2.Interval = 30000
+        '
+        'Timer3
+        '
+        Me.Timer3.Enabled = True
+        Me.Timer3.Interval = 10
         '
         'HVAC
         '
@@ -317,6 +397,12 @@ Partial Class HVAC
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(167, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(167, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(808, 456)
+        Me.Controls.Add(Me.ErrorStatusLabel)
+        Me.Controls.Add(Me.ErrorTextBox)
+        Me.Controls.Add(Me.LowUpButton)
+        Me.Controls.Add(Me.LowDownButton)
+        Me.Controls.Add(Me.HighUpButton)
+        Me.Controls.Add(Me.HighDownButton)
         Me.Controls.Add(Me.LowTextBox)
         Me.Controls.Add(Me.LowLabel)
         Me.Controls.Add(Me.ExitButton)
@@ -376,4 +462,12 @@ Partial Class HVAC
     Friend WithEvents ExitButton As Button
     Friend WithEvents LowTextBox As TextBox
     Friend WithEvents LowLabel As Label
+    Friend WithEvents HighDownButton As Button
+    Friend WithEvents HighUpButton As Button
+    Friend WithEvents LowUpButton As Button
+    Friend WithEvents LowDownButton As Button
+    Friend WithEvents ErrorTextBox As TextBox
+    Friend WithEvents ErrorStatusLabel As Label
+    Friend WithEvents Timer2 As Timer
+    Friend WithEvents Timer3 As Timer
 End Class
